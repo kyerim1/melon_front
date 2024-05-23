@@ -5,8 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   
+    <style>
+
+        #blue{
+            display:flex;
+            margin: 0 auto;
+            width:700px;
+            box-sizing: border-box;
+            padding:30px 70px 30px 30px;
+            background-color: blue;
+            margin-bottom:20px;
+        }
+        #sand{
+            margin:0 auto;
+            width:700px;
+            background-color: blanchedalmond;
+            height:70px;
+        }
+
+        #orange{
+            height:50px;
+            background-color: orange;
+            margin-bottom:20px;
+        }
+        #kaki{
+            height:50px;
+            margin-bottom:20px;
+            background-color: olivedrab;
+        }
+        #yellow , #gray{  display:inline-block;}
+        #yellow{
+            width:150px;
+            background-color: yellow;
+            height:50px;
+        }
+        #gray{
+            margin-left:30px;
+            width:calc( 700px - 30px - 70px - 30px - 150px );
+            background-color: gray;
+            height:50px;
+        }
+    </style>
 </head>
 <body>
+   
+    <div id="blue">
+        <div id="orange"></div>
+        <div id="kaki"></div>
+        <div id="box">
+            <span id="yellow"></span><span id="gray"></span>
+        </div>
+    </div>
+
+    <div id="sand"></div>
+
+
     
+
+
 </body>
 </html>
