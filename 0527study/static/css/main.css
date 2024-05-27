@@ -75,3 +75,35 @@ ul{
     font-weight:800;
     text-shadow: 3px 3px 2px #eaaf0c;
 }
+
+#main{
+    width:100%;
+}
+
+#slide{
+    width:100%;
+    position:relative;
+}
+.move_bt{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    background-color: #eee;
+    padding:1px 5px 5px 5px;
+    font-size:25px;
+    opacity: 0.7;
+    cursor:pointer;
+}
+.left{  left:10px; }
+.right{ right:10px; }
+
+
+#slide .slide_image{
+    /* background:url(../image/slide.jpeg) ;
+    background-repeat: no-repeat;
+    background-position: center; */
+
+    background:url(../image/slide.jpeg) no-repeat center;
+    background-size: cover;
+    height:350px;
+}
