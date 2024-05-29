@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{display:flex; width:1000px; height:200px; border:1px solid black;}
+        .item{width:100px; height:100px;}
+        .item:nth-child(1){background:yellow;}
+        .item:nth-child(2){background:red;}
+        .item:nth-child(3){background:blue;}
+        .item:nth-child(4){background:green;}
+    </style>
+</head>
+<body>
+    <h2>justify-content:start; </h2>
+    <style>#con1{justify-content: start;}</style>
+    <div id="con1" class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <h2>justify-content:end; </h2>
+    <style>#con2{justify-content: end;}</style>
+    <div id="con2" class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <h2>justify-content:center; </h2>
+    <style>#con3{justify-content: center;}</style>
+    <div id="con3" class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <h2>justify-content:space-between; </h2>
+    <style>#con4{justify-content: space-between;}</style>
+    <div id="con4" class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <h2>justify-content:space-around; </h2>
+    <style>#con5{justify-content: space-around;}</style>
+    <div id="con5" class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <h2>justify-content:space-evenly; </h2>
+    <style>#con6{justify-content: space-evenly;}</style>
+    <div id="con6" class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    
+</body>
+</html>

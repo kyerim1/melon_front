@@ -5,8 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #wrap{
+            height:500px;
+            border:2px solid black;
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            align-items: center;
+        }
+        .item{ width:100px;  height:100px;}
+        .yellow{
+            width:200px; height:100px;
+        }
+    </style>
 </head>
 <body>
     
+    <div id="wrap">
+        <div class="item yellow" style="background:yellow;">a</div>
+        <div class="item red" style="background:red;">b</div>
+        <div class="item blue" style="background:blue;">c</div>
+        <div class="item green" style="background:green;">d</div>
+        <div class="item violet" style="background:violet;">e</div>
+    </div>
+
 </body>
 </html>
+
+<!--   
+    flex - 브라우저 화면에서 요소(태그, 텍스트, 이미지)들의 배치를 위해 사용하는 기능
+
+    부모 태그와 자식태그의 명칭
+    display:flex  가 적용된 태그는 부모태그이다.
+    부모태그를 flex컨테이너 라고 한다.
+    자식태그를 flex Item 이라고 한다.
+
+    flex로 적용할수 있는 속성(정렬,간격 배치 등등)은  컨테이너에 적용하는속성과
+    아이템에 적용하는 속성으로 나누어져 있다.
+
+    컨테이너(부모태그) 에 적용하는 속성
+    display:flex;
+
+    주축 : justify-content
+    - 주축은 기본 컨테이너(부모태그)의 왼쪽에서 오른쪽 으로 방향으 들어간다.
+    - justify-content : start;  ( 컨테이너의 왼쪽에 item(자식태그)을 배치한다.)
+    - justify-content : center; ( 컨테이너의 수평 가운데에 item을 배치한다. )
+    - justify-content : end; ( 컨테이너의 오른쪽에 item을 배치한다. )
+    -  : space-between; ( 첫번째 item과 마지막 item을 양쪽끝에 배하고  나머지 item들을
+                          동일한 간격으로 배치한다)
+       : space-around; (양쪽끝에서 살짝 띄우고  item들을 동일한 간격으로 배치한다.)
+       : space-evenly; (양쪽끝에 간격과 모든 item들의 간격이 동일하게 배치된다.)
+
+    교차축 : align-items
+-->
