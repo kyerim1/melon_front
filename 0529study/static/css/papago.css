@@ -66,4 +66,44 @@
     margin:0 auto;
     padding:50px 0;
     position:relative;
+    border-bottom:1px solid #ccc;
+}
+#main_box{
+    width:100%;
+    position:relative;
+}
+#main_box .translation{
+    width:685px;
+    position:relative;
+    top:0;
+    border:1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#main_box .translation_right{
+    position:absolute;
+    right:0;
+}
+#main_box .translation_top{
+    padding:20px 30px;
+    font-weight:700;
+}
+#main_box .translation_middle{
+    padding:40px 17px;
+    height:226px;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    position:relative;
+}
+#main_box .translation_middle .guide{
+    font-size:29px;
+    color:#777;
+    font-weight:600;
+}
+#main_box .translation_middle .count{
+    font-size:20px;
+    color:#aaa;
+    position:absolute;
+    right:17px;
+    bottom:40px;
 }
