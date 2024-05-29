@@ -107,3 +107,33 @@
     right:17px;
     bottom:40px;
 }
+
+#main_box .translation_bottom{
+    width:100%;
+    position:relative;
+    display:flex;
+}
+
+#main_box .translation_bottom .function{
+    display:flex;
+    width:75%;
+}
+#main_box .translation_bottom .function span{
+    
+    height:70px;
+    width:70px;
+    border-right:1px solid #ccc;
+}
+
+#main_box .translation_bottom .translation_bt{
+    
+    width:25%;
+}
+#main_box .translation_bottom .translation_bt button{
+    width:100%;
+    height:70px;
+    border:0;
+    font-size:23px;
+    background:#21dc6d;
+    color:white;
+}
