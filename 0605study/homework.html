@@ -1,0 +1,87 @@
+<!--  homework.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+//문제 1.
+//1.   세개의 정수 를 입력받아서 가장 큰수 를 출력하세요.
+//   단, 같은숫자 입력 은 하지말고요
+
+    // num1 = Number(prompt("첫번째 정수 "));
+    // num2 = Number(prompt("두번째 정수"));
+    // num3 = Number(prompt("세번째 정수"));
+    
+    // if( num1 > num2  && num1 > num3 ){
+    //     document.write("큰수 : "+num1);
+    // }else if( num2 > num1 && num2 > num3 ){
+    //     document.write("큰수 : "+num2);
+    // }else{
+    //     document.write("큰수 : "+num3);
+    // }
+
+
+    // if(num1 > num2){
+    //     if(num1 > num3){
+    //         document.write("큰수 : "+num1);
+    //     }else{
+    //         document.write("큰수 : "+num3);
+    //     }
+    // }else if( num2 > num3){
+    //     document.write("큰수 : "+num2);
+    // }else{
+    //     document.write("큰수 : "+num3);
+    // }
+
+//  2. 주사위 게임 컴퓨터와 함께
+//  - 컴퓨터와 내가 각각 주사위 2개씩 던진다. 
+//  -  주사위의 합이 큰쪽이 이긴다. 
+//  - 단,  주사위가 같은 값이면 이긴다.
+//  예)   컴 :  1 ,5     나 : 2,3    -> 나의 패배 (합이 작으니까)
+//        컴 : 5, 6     나: 1, 1   -> 나의 승리 (같은 값이 나왔으니까)
+
+
+    user1 = Math.floor(Math.random() *6 ) + 1;
+    user2 = Math.floor(Math.random() *6 ) + 1;
+
+    com1 = Math.floor(Math.random() *6 ) + 1;
+    com2 = Math.floor(Math.random() *6 ) + 1;
+
+    userSum = user1 + user2;
+    comSum = com1 + com2;
+    dice = `나 : ${user1}, ${user2} (${userSum}) ,  컴 : ${com1}, ${com2} (${comSum})`;
+
+    if(userSum === comSum){
+        if( user1==user2 && com1 != com2){
+            document.write("나의 승리 " +dice);
+        }else if( user1 != user2 && com1==com2){
+            document.write("나의 패배 "+dice);
+        }else{
+            document.write("비김 "+dice);
+        }
+    }
+    else if( userSum > comSum ){
+        if(com1 == com2 && user1 != user2){
+            document.write("나의 패배 "+dice);
+        }else{
+            document.write("나의 승리 " +dice);
+        }
+    }else{
+        if(user1 == user2 && com1 != com2){
+            document.write("나의 승리 "+dice);
+        }else{
+            document.write("나의 패배 "+dice);
+        }
+    }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
