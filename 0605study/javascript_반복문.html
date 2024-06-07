@@ -160,20 +160,24 @@
         // for( var i=1; i<=10; i++){    }
         // for(;true;){  }
 
-        
-        user = Number(prompt("up&down 숫자 맞추기 : "));
-        while( true ){
-            com = Math.floor(Math.random() * 50) + 1;
-            if(user == com){
-                document.write("<br> 정답");
-                break; // while문 종료
-            }else if( user > com){  // 컴퓨터의 숫자보다 크게 입력한 경우
-                alert("DOWN");
-            }else if( user < com ){ // 컴퓨터의 숫자보다 작게 입력한 경우
-                alert("UP");
-            }
- 
-        }
+        // a=50; b=1; c=50;
+        // user = Number(prompt("up&down 숫자 맞추기 : "));
+        // while( true ){
+        //     com = Math.floor(Math.random() * a) + b;
+        //     if(user == com){
+        //         document.write("<br> 정답" +com);
+        //         break; // while문 종료
+        //     }else if( user <com){  // 컴퓨터의 숫자보다 크게 입력한 경우
+        //         c=com-1;
+        //         a=c-b+1;
+        //         document.write(com+"DOWN<br>");
+        //     }else if( user > com ){ // 컴퓨터의 숫자보다 작게 입력한 경우
+        //         b=com+1;
+        //         a=c-b;
+        //         document.write(com+"UP<br>");
+        //     }
+            
+        // }
 
 
         // 과제
@@ -182,11 +186,39 @@
 
             내가입력한 숫자를 컴퓨터가 random()함수를 통해  맞춰야 한다.
             UP, DOWN을 통해  범위를 좁혀가며 맞출수 있게 해야한다.
-            
+
 
         */
 
+        let user = 0;
+        while(  !(1<= user && user <=50)  )
+            user = Number(prompt("1~50중 하나 입력하세요 "));
+        
 
+        var max = 50; // 랜덤범위의 최대값 
+        var min = 1; // 랜덤범위의 최소값
+        var mul = 50; // 랜덤함수 최대값-최소값+1 
+        
+        while(true){
+            com = Math.floor(Math.random()  * mul ) + min ;  // *50 ) +1 - 1~50
+
+            if( user === com ){
+                document.write("정답!!  com : "+com +"   user : "+user);
+                break; // while문 반복 종료
+            }
+            else if( com < user){ // 내가 입력한 값보다 컴퓨터의 값이 작다면
+                document.write(`UP!  (com : ${com})<br>`);
+                min = com+1; //랜덤범위의 최소값 - 결과가 업이므로 컴퓨터값보다 +1이 최소값
+                mul = max-min+1; //랜덤범위의 최대값 변화 없음 - 최소값이 변경되었으므로 * 값변경
+
+            }
+            else if(com > user ){ // 내가 입력한 값보다 컴퓨터의 값이 크다면
+                document.write(`DOWN! (com : ${com})<br>`);
+                max = com-1;  // 랜덤범위의 최대값 - 다운이므로 최대값만 변경 
+                mul = max- min +1; // 랜덤범위가 변경 되었으므로 * 의 값도변경
+
+            }
+        }
 
 
 
