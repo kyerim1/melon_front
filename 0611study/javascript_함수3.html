@@ -1,0 +1,97 @@
+<!-- javascript_함수3.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+
+    // 함수 형태 
+    /* 1. 매개변수와 반환값이 없는 함수
+            function eat(){
+                document.write("나는 샌드위치 먹었다");
+            }
+        2. 매개변수는 있고  반환값은 없는 함수
+            function eat( food ){
+                document.write("나는 "+food+ " 먹었다.");
+            }
+        3. 매개변수는 없고 반환값이 있는 함수
+            function pickFood(){
+                var food = "청국장";
+                return food; // 반환
+            }
+        4. 매개변수있고 반환값도 있는 함수
+            function eat( food ){  //매개변수
+                var str = "나는 " + food + " 먹었다";
+                return str; // 반환
+            }
+    
+        반환이 무엇이냐!!  
+        return 이라고 한다. 
+        함수가 호출 된 위치에 값을 되돌려 놓는 방법
+        함수에 의해 생성된 데이터를 외부로 보내는 방법 - return
+        함수에 필요한 데이터를 외부에서 가져오는 방법 - 매개변수
+
+        var ment = eat('냉면');
+    
+        함수는 기능(목적)을 정하고 정의해야한다.
+        함수의 기능을 벗어나는 코드 작성은  프로그램동작의 결함,장애 가 될수 있다.
+
+        자동차 - 
+        자전거  체인
+    */
+
+    // function total(){
+    //     var kor=90;
+    //     var mat=80;
+    //     var eng=60;
+    //     var tot = kor+mat+eng;
+    //     document.write( tot );
+    // }
+
+    // var scoreTotal = total();
+    // document.write( scoreTotal );
+
+
+
+
+
+</script>
+
+ </head>
+ <body>
+    
+    <div id="wrap">
+        <div id="power" class="bt">전원</div>
+        <div id="increase" class="bt">온도▲</div>
+        <div id="driving" class="bt">운전선택</div>
+        <div id="indirect" class="bt">간접바람</div>
+        <div id="reduction" class="bt">온도▼</div>
+        <div id="wind" class="bt">바람세기</div>
+    </div>
+<style>
+#wrap{
+    margin:0 auto;
+    width:500px;
+    display:flex;
+    flex-wrap: wrap;
+    gap:10px;
+}
+.bt{
+    box-sizing: border-box;
+    width:160px; line-height:200px;
+    border:1px solid black;
+    text-align: center;
+    font-size:30px;
+    cursor: pointer;
+}
+.bt:first-child{background-color: red; color:white;}
+.bt:nth-child(2), .bt:nth-child(5){ background-color: yellow;}
+.bt:nth-child(3),.bt:nth-child(4){background:green; color:white;}
+
+</style>
+
+ </body>
+ </html>
