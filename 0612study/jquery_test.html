@@ -1,0 +1,75 @@
+<!--  jquery_test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN  -->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<!-- javascript -->
+<script>
+
+//  keyUp - 키보드 눌렀다가 떼는경우 , keyDown- 키보드 눌렀을때, keyPress - 키보드 눌렀다
+
+    $(function(){
+
+        // 입력버튼을 클릭하면 동작 할 이벤트 등록 하기
+        $("#inputBt").click( join );
+
+        $(document).keyup( function( e ){
+            if( e.keyCode === 13 ){ //엔터키를 누르면 참  - 엔터키는 13번이니까
+                join();
+            }
+        });
+
+    });
+
+    function join(){ // input태그에 입력한 값 가져와서  div#check에 출력하기
+        // 입력한 데이터(값)를 자바스크립트에서 사용하려면 변수에 저장하여 사용
+        // 입력한 데이터가 아니더라도 데이터가 필요하다면  필요한만큼 변수 선언 하여 사용
+        var userId = $("#id").val();  // 아이디 입력값
+        var userPw = $("#pw").val(); // 비밀번호 입력값
+        var userBirth = $("#birth").val(); // 생년월일 입력값
+
+        allInputCheck(userId, userPw, userBirth); //아이디,비밀번호,생년월일 전부 입력했는가?
+
+
+        $("#check").html(`<div>아이디 : ${userId}</div> <div>비밀번호 : ${userPw}</div>
+        <div>생년월일 : ${userBirth}</div>`);
+    }
+
+    function allInputCheck( id, pw, birth ){ // id=userId , pw=userPw,  birth=userBirth
+        if( id === ''){
+            alert("아이디 입력하세요");
+            return false;  //  return은  해당 함수를 종료 시키면서 값을 반환 한다.
+        }else if(pw === '' ){
+            alert("비밀번호 입력하세요");
+            return false;
+        }else if( birth === '' ){
+            alert("생년월일을 입력하세요");
+            return false;
+        }
+        
+        return true;
+    }
+
+
+</script>
+
+</head>
+<body>
+    
+    <label>아이디 </label> <input type="text" id="id">  <br>
+    <label>비밀번호</label> <input type="password" id="pw">  <br>
+    <label>생년월일</label> <input type="text" id="birth" placeholder="생년월일 8자리 입력하세요"> 
+
+    <br> <button id="inputBt">입력</button>
+
+    <div id="check">
+
+    </div>    
+
+
+</body>
+</html>
