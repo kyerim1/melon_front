@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<!-- jquery CDN-->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
    <script>
     // 배열 - 데이터를 저장하기 위한 연속적인 메모리 공간
@@ -68,13 +70,46 @@
     // document.write(inputName +" 학생 점수 : "+  score[idx] );
 
 
-    let imgName= ["1.jpg","2.jpg","3.jpg"];
-    
+    let imgName= ["1.jpg", "2.jpg", "3.jpg"];
 
+    let i=0; //전역변수
+    $(function(){
+        // for( var i=0; i< imgName.length; i++){
+        //     // 시간
+        //     $("#bg").attr('src', './static/image/'+imgName[i]);
+        // }
+        // 시간 - setInterval , setTimeout 
+        // setTimeout - 지정된시간 이후에 실행
+        // setTimeout( 실행코드 , 시간 )
+        // setInterval - 지정된 시간 간격으로 실행
+        // setInterval( 실행코드, 시간 )
+        
 
-   </script> 
+        // setTimeout( function(){
+        //     $("#bg").attr('src', './static/image/' + imgName[1]);
+        // } , 3000  );
+        // setTimeout( function(){
+        //     $("#bg").attr('src', './static/image/' + imgName[2]);
+        // } , 6000  );
+        setInterval( function(){ 
+            $("#bg").attr('src', './static/image/' + imgName[i]);
+            i++; 
+            if( i >= imgName.length ) i=0;
+         }, 3000);
+
+         setInterval(function(){
+            $("#print").text("지금 이미지 인덱스 : " + i);
+         }, 2000);
+    });
+   </script>
+   <style>
+    #bg{width:500px;}
+   </style> 
 </head>
 <body>
     
+    <img id="bg" src="">
+    <div id="print"></div>
+
 </body>
 </html>
