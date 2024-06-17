@@ -27,7 +27,10 @@ function bingoCheck(){
     // 클릭한 td에 표시된 숫자를 배열에서 0으로 변경
     // 배열에 0 이 저장된곳은 클릭한 숫자 이다.
     var idx = $(".num").index(this); // 클릭한 td가 몇번째 인덱스인가
+    $(".c").eq(bingo[idx]-1).css('background','pink');
     bingo[idx]=0; // 해당td위치와 같은 bingo배열에 0으로 변경
+
+    
     //  4번째 td 클릭하면 idx는 3이고  bingo[3] =0 으로 변경하겠다는 내용
     /*
         빙고 몇줄?? 
@@ -70,6 +73,7 @@ function bingoCheck(){
         alert(" 게임 오버 !!!");
         endGame();
     } 
+    
 }
 
 function endGame(){
@@ -111,10 +115,22 @@ function start(){
 
 function init(){ // 25개 숫자 배열에 저장
     while( bingo.length != 25){
-        var tmp = Math.floor(Math.random() * 50 ) +1;
+        var tmp = Math.floor(Math.random() * 100 ) +1;
         if( bingo.indexOf( tmp ) == -1 )
             bingo.push( tmp );
     }
+    for(var i=0; i<=1; i++){
+        $("#all").append("<tr>");
+        for(var k=1; k<=50; k++){
+            $("#all").append("<td class='c' style='width:50px;text-align:center;'>"+(k+i*50)+"</td>");
+        }
+        $("#all").append("</tr>");
+    }
+    $(".c").click(function(){
+        $(this).css('background','pink');
+    });
+    
+  
 }
 function draw(){ // 배열의값 테이블(td)에 출력
     var td = $(".num");
