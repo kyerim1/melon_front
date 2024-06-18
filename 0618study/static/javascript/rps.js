@@ -125,3 +125,13 @@ function localSave(){
 
     //localStorage.setItem("like", "banana"); // localStorage - 문자열 데이터 저장
 }
+
+
+
+
+
+
+1. html -  화면 표시
+2. 스타일 - 위치 모양 색 크기
+3. 스크립트 - 태그 동작, 기능
+4. 
