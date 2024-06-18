@@ -1,0 +1,73 @@
+/*  rps.css  */
+
+/*
+   <div id="vs"> <img> </div>
+    #vs{
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+    }
+*/
+
+*{ box-sizing: border-box; width:100%; }
+body{ margin:0;}
+#buttonWrap{
+    position:fixed;
+    left:50%;
+    top:30px;
+    transform: translateX(-50%);
+    width:200px;
+    display: flex;
+    column-gap: 5px;
+    justify-content: center;
+}
+#buttonWrap button{
+    width:50%;
+    border:0;
+    font-size:20px;
+    border-radius: 7px;
+    padding:7px 0;
+}
+#game{
+    background:#ffd700;
+}
+#record{
+    background: #28a745;
+    color:white;
+}
+#wrap{
+    background: url( ../image/bg.jpg ) no-repeat center;
+    background-size: cover;
+    height:100vh;
+    display:flex;
+    min-width:900px;
+}
+#wrap .area{
+    padding:10%;
+    position:relative;
+}
+#wrap .area .rpsImg{
+    width:100%;
+}
+#comArea{ 
+    display: flex;
+    align-items: center;
+}
+#wrap #userArea{
+    padding:5%;
+}
+#userArea .rpsImg{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#userArea .userImg{
+    width:50%;
+    padding:10px;
+    border-radius: 100%;
+}
+#userArea .userImg:hover{
+    border:2px solid red;
+}
