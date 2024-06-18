@@ -14,6 +14,7 @@
 body{ margin:0;}
 #buttonWrap{
     position:fixed;
+    z-index: 100;
     left:50%;
     top:30px;
     transform: translateX(-50%);
@@ -70,4 +71,24 @@ body{ margin:0;}
 }
 #userArea .userImg:hover{
     border:2px solid red;
+}
+
+#comImg{ width:75%; }
+
+.result{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:200px;
+    background-color: white;
+    border-radius: 10px;
+    font-size:100px;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+@media screen and (min-width:1450px){
+    #userArea .userImg{
+        width:30%;
+    }
 }
