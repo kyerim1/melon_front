@@ -33,16 +33,22 @@
         // document.write(  std.name  );
         // document.write( std.age );
     };
-    xml.open(  "GET"  , "student.json"  ); //받기
+    xml.open(  "GET"  , "sigu.json"  ); //받기
     xml.send();  //보내기
 
     
+   // 대전 광역시 중구의  광역시 코드와 시군구 코드를 출력하세요
 
     function view( std ){
 
         for( var i=0; i<std.length; i++){
-            if( std[i].name.indexOf("김") == 0  ){
-                document.write( std[i].name+" "+std[i].age+" "+std[i].tall+"<br>" );
+            if( std[i].법정동명.indexOf("대전광역시") != -1  ){
+
+                if( std[i].법정동명.indexOf("중구") != -1 ){
+
+                    document.write( std[i].광역시도코드+" "+std[i].시군구코드+"<br>" );
+
+                }
             }
         }
 
