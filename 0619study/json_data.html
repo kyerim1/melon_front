@@ -1,0 +1,59 @@
+<!--  json_data.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+
+    // let student = { name:"이순신", age:19, tall:172 } ;
+    // document.write( student.name );
+
+    // // JSON.stringify -> 자바스크립트 객체를 문자열로 변환
+    // // JSON.parse -> 문자열을 자바스크립트 객체로 변환
+
+    // let str = JSON.stringify( student);
+    // document.write("<br>" + str);
+
+    // let std = JSON.parse( str );
+    // document.write("<br>" + std.age);
+
+    // student.json
+
+    // xml  
+
+    let std='';
+
+    const xml = new XMLHttpRequest();
+    xml.onload= function(){
+        std = JSON.parse( this.responseText  );
+        view( std );
+        // document.write(  std.name  );
+        // document.write( std.age );
+    };
+    xml.open(  "GET"  , "student.json"  ); //받기
+    xml.send();  //보내기
+
+    
+
+    function view( std ){
+
+        for( var i=0; i<std.length; i++){
+            if( std[i].name.indexOf("김") == 0  ){
+                document.write( std[i].name+" "+std[i].age+" "+std[i].tall+"<br>" );
+            }
+        }
+
+
+    }
+
+</script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
