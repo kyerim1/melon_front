@@ -63,11 +63,36 @@
         xml.open( 'GET', '종량제봉투.json'); // 받기
         xml.send(); // 보내기
 
+        $("#search").on('keyup' , search );
+
     });
+
+    function search(){  // search함수에서  this는  input#search 이다.
+        var value = $(this).val();  // input 태그 입력 값 가져오기
+        $("#dataField tr").filter( function(){
+            $(this).toggle( $(this).text().indexOf( value ) != -1 );
+        } );
+        // .toggle( false ) - hide() 동작 ,  .toggle( true ) - show()동작
+    }
 
 
     function output( data ){
+        // data매개변수는 배열이다.  배열안에 객체들이 있다.
 
+        for( var i=0; i< data.length; i++){
+            
+            //if( data[i].동선택 === "부강면" ){
+                $("#dataField").append(`
+                    <tr>
+                        <td>${ data[i].동선택 }</td>   
+                        <td>${ data[i].지정판매소명 }</td>
+                        <td>${ data[i]['도로명 주소'] }</td>
+                        <td>${ data[i]['판매소 전화번호'] }</td>
+                    </tr>
+                `);
+            //}
+
+        }
     }
 
     

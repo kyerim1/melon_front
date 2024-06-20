@@ -1,0 +1,53 @@
+<!--  json_data3.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- jquery CDN-->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+    /*
+        폭염.json  파일의 내용 자바스크립로 가져와서
+        브라우저 화면에 출력하기
+        이쁘고 깔끔하고 심플하게  
+    */
+
+    $.getJSON( "폭염.json", function(data){  // getJSON을 사용하면 JSON.parse까지 해준다.
+        show(data);
+    });
+
+    function show(data){
+        for(var i=0; i< data.length; i++){
+            $("#list").append(`
+                <li> ${data[i].연도별} </li>
+                <li> ${data[i]['서울(일)']}</li>
+                <li> ${data[i]["강릉(일)"]}</li>
+                <li> ${data[i]["대전(일)"]}</li>
+                <li>${data[i]["대구(일)"]}</li>
+                <li>${data[i]["광주(일)"]}</li>
+                <li>${data[i]["부산(일)"]}</li>
+                <li>${data[i]["전국일평균(일)"]}</li>
+            `);
+        }
+    }
+
+</script>
+
+<style>
+    h3{ height:40px;  border-bottom:1px solid #aaa; }
+    h3 b{font-size:20px; display:inline-block;width:100px; text-align: center;}
+    #list{   display:flex; flex-wrap:wrap; width:800px;  padding:0; margin:0; list-style: none;  }
+    #list>li{
+        width:100px; text-align: center; line-height: 40px;
+    }
+
+</style>
+</head>
+<body>
+    <h3><b>연도별</b><b>서울</b><b>강릉</b><b>대전</b><b>대구</b><b>광주</b><b>부산</b><b>전국평균</b></h3>
+    <ul id="list"></ul>
+</body>
+</html>
