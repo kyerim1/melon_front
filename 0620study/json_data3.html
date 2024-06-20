@@ -15,6 +15,39 @@
         이쁘고 깔끔하고 심플하게  
     */
 
+    $(function(){
+        $("#day").on('keyup', heatFilter ); // input태그에 키보드로 입력시
+        $("#day").on('change',heatFilter ); // input 태그에 업다운 버튼 클릭하여 변경시
+        $("#location").on('change', heatFilter ); //select 태그의 값 선택시
+    });
+
+
+    function heatFilter(){
+        var value= $("#day").val();
+        var loc = $("#location").val();
+        if( value  != 0 ){
+            let li = $("#list li");
+            loc = Number(loc);  // 서울 선택시 loc에는 2 저장, 대전 선택시 loc에는 4 저장
+            for( var i=loc-1; i< li.length; i= i + 8){
+                if( Number( li.eq(i).text() ) != Number(value) ){
+                    for( var k= i-(loc-1); k <= i+8-loc; k++){ // 선택한 지역이 조건에 맞지않으면
+                        li.eq(k).toggle(false);                  // 해당줄의 전체 li태그 감추기
+                    }
+                }else {
+                    for( var k= i-(loc-1); k <= i+8-loc; k++){ 
+                        li.eq(k).toggle(true);                  
+                    }
+                }
+            }
+
+        }
+
+        // $("#list li").filter(function(){
+        //     $(this).toggle(  $(this).text().indexOf( value ) != -1  );
+        // });
+    }
+
+
     $.getJSON( "폭염.json", function(data){  // getJSON을 사용하면 JSON.parse까지 해준다.
         show(data);
     });
@@ -50,13 +83,13 @@
 
     <div id="filter">
         <select id="location">
-            <option value="전국">전국</option>
-            <option value="서울">서울</option>
-            <option value="강릉">강릉</option>
-            <option value="대전">대전</option>
-            <option value="대구">대구</option>
-            <option value="광주">광주</option>
-            <option value="부산">부산</option>
+            <option value="0">전국</option>
+            <option value="2">서울</option>
+            <option value="3">강릉</option>
+            <option value="4">대전</option>
+            <option value="5">대구</option>
+            <option value="6">광주</option>
+            <option value="7">부산</option>
         </select>
         <input type="number" id="day" value="0" style="width:40px; padding-left:10px;">일
         <button id="more">이상</button>
