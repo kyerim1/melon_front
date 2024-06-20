@@ -16,26 +16,44 @@
     */
 
     $(function(){
-        $("#day").on('keyup', heatFilter ); // input태그에 키보드로 입력시
-        $("#day").on('change',heatFilter ); // input 태그에 업다운 버튼 클릭하여 변경시
-        $("#location").on('change', heatFilter ); //select 태그의 값 선택시
+        // $("#day").on('keyup', heatFilter ); // input태그에 키보드로 입력시
+        // $("#day").on('change',heatFilter ); // input 태그에 업다운 버튼 클릭하여 변경시
+        // $("#location").on('change', heatFilter ); //select 태그의 값 선택시
+
+        $("#more").on('click', heatFilter ); // 이상  버튼 클릭시
+        $("#less").on('click', heatFilter );// 이하 버튼 클릭시
     });
 
+    function moreFunc(a, b){  // 이상 버튼 클릭하면 동작할 함수  >=
+        return a>=b;
+    }
+    function lessFunc( a, b){ // 이하 버튼 클릭하면 동작할 함수  <=
+        return a<=b;
+    }
+
+    //var f = (a,b) => { return a>=b;}
 
     function heatFilter(){
+        var func = moreFunc;  // 함수의 이름을 변수에 저장하여 함수호출 가능
+        if( $(this).text() === "이하" ) func = lessFunc; // 함수의 이름은 메모리 주소이고
+        //  함수호출은 메모리주소를 통해 실행시키기 때문에  변수에 담아서 호출하는게 가능
+
+
         var value= $("#day").val();
         var loc = $("#location").val();
         if( value  != 0 ){
             let li = $("#list li");
             loc = Number(loc);  // 서울 선택시 loc에는 2 저장, 대전 선택시 loc에는 4 저장
             for( var i=loc-1; i< li.length; i= i + 8){
-                if( Number( li.eq(i).text() ) != Number(value) ){
+                
+                if(  func( Number( li.eq(i).text() ) ,  Number(value) )  ){
+
                     for( var k= i-(loc-1); k <= i+8-loc; k++){ // 선택한 지역이 조건에 맞지않으면
-                        li.eq(k).toggle(false);                  // 해당줄의 전체 li태그 감추기
+                        li.eq(k).toggle(true);                  // 해당줄의 전체 li태그 감추기
                     }
                 }else {
                     for( var k= i-(loc-1); k <= i+8-loc; k++){ 
-                        li.eq(k).toggle(true);                  
+                        li.eq(k).toggle(false);                  
                     }
                 }
             }
