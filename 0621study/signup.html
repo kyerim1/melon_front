@@ -14,13 +14,14 @@
     
     <div id="wrap">
         <h2 id="pageTitle">회원가입</h2>
-        <form method="get" action="./signupComplete.html">
+        <form id="signupForm" method="get" action="./signupComplete.html">
             <fieldset class="fd">
                 <legend>필수입력</legend>
                 <div id="essntial" class="signupField">
                     <div class="inputField">
                         <label for="userId">아이디</label>
-                        <input type="text" name="userId" id="userId">
+                        <input type="text" name="userId" id="userId"
+                         maxlength="20" minlength="6" placeholder="아이디는 6자이상 20자이하">
                     </div>
                     <div class="inputField">
                         <label for="userPw">비밀번호</label>
@@ -86,7 +87,7 @@
                         </div>
                     </div>
 
-                    <div>
+                    <div style="width:100%">
                         <h3>직업</h3>
                         <div class="jobList">
                             <input type="radio" name="job" value="학생">학생
@@ -95,7 +96,7 @@
                             <input type="radio" name="job" value="프로그래머">프로그래머
                         </div>
                     </div>
-                    <div>
+                    <div  style="width:100%">
                         <h3>나와 닮은연예인</h3>
                         <input type="file" id="portrait">
                         <div id="preview"></div>
