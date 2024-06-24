@@ -27,31 +27,31 @@ $(function(){
     });
 
     // 회원가입 버튼 클릭 이벤트 등록
-   // $("#signup").on('click' , requiredCheck );
+   $("#signup").on('click' , requiredCheck );
     
    // 체크박스들을 선택하였을경우 어떻게 값이 나오나?
-   $("#signup").on('click',function(){
-    // jquery에서 checkbox중 체크 한 것만 가져오려면
-    // $("input[name=interest]:checked")
-    //  :checked 를 붙여야  체크 한것 만 가져온다.
+//    $("#signup").on('click',function(){
+//     // jquery에서 checkbox중 체크 한 것만 가져오려면
+//     // $("input[name=interest]:checked")
+//     //  :checked 를 붙여야  체크 한것 만 가져온다.
 
-    //alert(  $("input[name=interest]:checked").length );
+//     //alert(  $("input[name=interest]:checked").length );
 
-    // 체크 한 value 값 전부 확인하려면
-    let itr = $("input[name=interest]:checked");
-    let value=[]; 
-    for( var i=0; i<itr.length; i++){
-        value.push(  $(itr[i]).val() );
-    }
-    alert("체크 한 관심분야 : " + value);
+//     // 체크 한 value 값 전부 확인하려면
+//     let itr = $("input[name=interest]:checked");
+//     let value=[]; 
+//     for( var i=0; i<itr.length; i++){
+//         value.push(  $(itr[i]).val() );
+//     }
+//     alert("체크 한 관심분야 : " + value);
 
 
 
-        // let interest = $("input[name=interest]:checked").val();
-        // alert( interest );
+//         // let interest = $("input[name=interest]:checked").val();
+//         // alert( interest );
 
-        //$("#signupForm").submit();
-   });
+//         //$("#signupForm").submit();
+//    });
 });
 
 function requiredCheck(){ // 필수 입력 을 모두 입력했는가?
@@ -86,6 +86,16 @@ function requiredCheck(){ // 필수 입력 을 모두 입력했는가?
         addr.focus();
     }else{  // 위의 if 조건식이 모두 거짓이라면 동작
             //모두 거짓이면  필수입력 전부 입력된것이다.
+
+        //localstorage에 저장
+
+        // 아이디 - id,  비밀번호 - pw , 이메일 - email , 연락처 - tel, 주소 -addr
+        var user = { id:id.val() , pw:pw.val() , email:email.val() , 
+            tel: tel.val(), addr:addr.val()
+        }
+        localStorage.setItem("user" , JSON.stringify( user) );
+
+
         $("#signupForm").submit();
     }
 }
