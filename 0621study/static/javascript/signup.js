@@ -2,6 +2,30 @@
 
 
 $(function(){
+
+    $("#portrait").on("change", function( e ){
+        //console.log(  $(this).val() );
+        console.log(  e.target.files  );
+        var file = e.target.files[0]; //input 태그로 선택한 파일의정보
+                     //  파일명, 파일유형, 수정일자, 크기 
+        
+        var reader = new FileReader(); // 파일열기 객체 생성
+        reader.onload = function( e){  //파일 열기가 완료되면
+            console.log( e.target.result );
+            var path = e.target.result;
+
+            $("#preview").css("background","url("+path+") no-repeat center");
+            $("#preview").css("background-size","contain");
+
+            //  이미지태그.attr("src", 경로);
+        }
+
+        reader.readAsDataURL(file);
+
+
+        //console.log( e.target.result );
+    });
+
     // 회원가입 버튼 클릭 이벤트 등록
    // $("#signup").on('click' , requiredCheck );
     
