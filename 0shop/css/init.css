@@ -18,6 +18,8 @@ a{
     padding:15px 0;
     position:sticky;
     top:0;
+    background: #fff;
+    border-bottom: 1px solid #bbb;
 }
 #nav{
     display: flex;
@@ -34,4 +36,36 @@ a{
     width:65%;
     align-items: center;
     justify-content: space-evenly;
+}
+
+#nav #sub-nav{
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+}
+
+#nav .navbar-menu .nav-item{
+    position:relative;
+    padding:5px 10px;
+}
+#nav .navbar-menu .nav-item .navbar-sub{
+    position:relative;
+    top:-20px;
+    background: #fff;
+}
+#nav .navbar-menu .nav-item .navbar-sub .sub-item{
+    position:absolute;
+    line-height: 0;
+    opacity: 0;
+    
+}
+#nav .navbar-menu .nav-item:hover .navbar-sub{
+    position:absolute;
+    top:30px;
+}
+#nav .navbar-menu .nav-item:hover  .navbar-sub .sub-item{
+    position:relative;
+    opacity: 1;
+    line-height: 30px;
+    width:100px;
 }
