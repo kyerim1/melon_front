@@ -1,0 +1,37 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+ul{
+    list-style-type: none;
+}
+a{ 
+    text-decoration: none;
+    color:inherit;
+}
+#wrap{
+    width:100%;
+    position:relative;
+}
+#header{
+    padding:15px 0;
+    position:sticky;
+    top:0;
+}
+#nav{
+    display: flex;
+    align-items: center;
+}
+#nav .logo{
+    background: url(../image/logo.png) no-repeat center;
+    background-size: cover;
+    width:200px;
+    height:50px;
+}
+#nav .navbar-menu{
+    display: flex;
+    width:65%;
+    align-items: center;
+    justify-content: space-evenly;
+}
