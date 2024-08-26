@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN-->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<style>
+    body{ margin:0; background-color: black;}
+    #white{
+        width:700px; margin:100px auto;
+        height:400px; background-color: white;
+        border-radius: 10px;
+        position:relative;
+    }
+    .card{
+        position:absolute;
+        top:75px; left:-100px; display:flex;
+    }
+    .card .image{
+        width:250px; height:250px; background-color: orange;
+        border-radius: 10px;
+    }
+    .card .text{
+        width:450px; height:250px; background-color: #ddd;
+    }
+    .bt{
+        position:absolute;
+        right:0; width:100px; height: 400px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10px;
+    }
+    .btn{ width:20px; height:20px; border-radius: 100%; border:0;
+        background-color: #aaa; cursor: pointer;
+    }
+    .sel{ background-color: red;}
+
+</style>
+
+</head>
+<body>
+    
+    <div id="white">
+        <div class="card first">
+            <div class="image">이미지1</div>
+            <div class="text">텍스트1</div>
+        </div>
+        <div class="card second">
+            <div class="image">이미지2</div>
+            <div class="text">텍스트2</div>
+        </div>
+        <div class="card third">
+            <div class="image">이미지3</div>
+            <div class="text">텍스트3</div>
+        </div>
+        <div class="bt">
+            <button data-id="first" class="btn"></button>
+            <button data-id="second" class="btn"></button>
+            <button data-id="third" class="btn"></button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(".second").hide();
+    $(".third").hide();
+    $(".btn").eq(0).addClass("sel");
+
+    $(".btn").on("click",select);
+
+    function select(){
+        var target = $(this).data("id");
+        $(".btn").removeClass("sel");
+        $(this).addClass("sel");
+
+        $(".card").hide();
+        $("."+target).show();
+    }
+
+</script>

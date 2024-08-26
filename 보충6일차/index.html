@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN-->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!-- 증가 클릭하면 온도 최대35까지  감소클릭하면 최소 1까지 -->
+    <button id="on">켜기</button> <button id="off">끄기</button>
+    <button id="up">증가</button><button id="down">감소</button>
+    <div id="lcd" style="display:none">
+        <p> 온도 <b id="temp">10</b> </p>
+    </div>
+
+</body>
+</html>
+<script>
+    let onoff=false;
+
+   $("#on").on("click",function(){
+        $("#lcd").show();
+        onoff=true;
+   });
+
+   $("#off").on("click",function(){
+        $("#lcd").hide();
+        onoff=false;
+   });
+
+   $("#up").on("click",function(){
+        if(onoff){
+            var temp = $("#temp").text();
+            temp = parseInt(temp)+1;
+            $("#temp").text( temp );
+        }
+   });
+
+   $("#down").on("click",function(){
+        if(onoff){
+            var temp = $("#temp").text();
+            temp = parseInt(temp)-1;
+            $("#temp").text( temp );
+        }
+   });
+</script>

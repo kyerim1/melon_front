@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery CDN-->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <style>
+        h2{ text-align: center;}
+        #wordList{ width:500px; margin:0 auto;}
+        ul{ list-style-type: none; padding:0; margin:0; }
+        .itemTitle{ display:flex;}
+        .sup{width:300px;}
+        .qua{width:100px;}
+        .rem{width:100px;}
+        #itemList li{ padding-bottom:10px;  display:flex;}
+    </style>
+
+    <h2>여행 준비물</h2>
+    <input type="text" id="word" name="word">
+    <input type="text" id="some" name="some">
+    <button onclick="save()">등록</button>
+
+    <div id="wordList">
+        <ul class="itemTitle">
+            <li class="sup">준비물</li>
+            <li class="qua">수량</li>
+            <li class="rem">비고</li>
+        </ul>
+        <ul id="itemList">
+
+        </ul>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function save(){
+        let v = $("#word").val(); // input태그안에 작성한 값 가져오기
+        let 수량 = $("#some").val();
+
+        $("#word").val(''); // input태그 안에 비우기
+        $("#some").val('');
+
+        $("#word").focus(); // input 태그에 커서넣기
+        $("#itemList").append(`<li> 
+            <div class="sup"> ${v}</div>
+            <div class="qua"> ${수량}</div> 
+            <div class="rem">
+                <button class="update">수정</button>
+                <button class="del">삭제</button> 
+            </div> 
+            </li>`);
+
+        $(".del").on("click",function(){
+            var li = $(this).parent().parent();
+            li.remove();
+        });
+        $(".update").on("click", itemUpdate );
+    }
+    
+    let nowUpdate=null;
+
+    function itemUpdate(){
+        if(nowUpdate == null){
+            nowUpdate=$(this);
+            var q = $(this).parent().prev();//수량div
+            var s = q.prev();//준비물 div
+            q.html( '<input type="text" id="temp1" value="'+q.text()+'">' );
+            s.html( '<input type="text" id="temp2" value="'+s.text()+'">' );
+        } else{
+            var q = nowUpdate.parent().prev(); //수량div
+            var s = q.prev(); //준비물 div
+            q.text( $("#temp1").val() );
+            s.text( $("#temp2").val() );
+
+            nowUpdate=null;
+        }
+    }
+
+    // 형제 태그 찾기  -  siblings() , next(), prev() 
+    // next() - 현재 태그의 다음 태그
+    // prev() - 현재태그의 앞쪽 태그
+    // sibling( ) - 모든 형제 태그
+
+</script>
